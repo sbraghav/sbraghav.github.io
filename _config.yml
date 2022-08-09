@@ -30,7 +30,7 @@ twitter_username: SB_Raghav
 github_username:  sbraghav
 
 # Build settings
-theme: minima
+theme: thalam
 plugins:
   - jekyll-feed
 
