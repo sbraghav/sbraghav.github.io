@@ -30,7 +30,7 @@ twitter_username: SB_Raghav
 github_username:  sbraghav
 
 # Build settings
-theme: thalam
+# theme: thalam
 remote_theme: thalam
 plugins:
   - jekyll-feed
