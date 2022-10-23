@@ -1,0 +1,25 @@
+.site-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+.post-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.post-link {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.footer-heading,
+.post-list-heading,
+.rss-subscribe, a.page-link {
+    display: none;
+}
+
+a.page-link:hover, span.username:hover{
+    font-weight: 700;
+}
