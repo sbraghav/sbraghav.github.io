@@ -1,0 +1,749 @@
+/* ========================================
+   Base Overrides - Developer Dark Theme
+   ======================================== */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  color: #c9d1d9;
+  background-color: #0d1117;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f0f6fc;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+
+p {
+  color: #c9d1d9;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+a {
+  color: #58a6ff;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:visited {
+  color: #58a6ff;
+}
+
+a:hover {
+  color: #79c0ff;
+  text-decoration: none;
+}
+
+code {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: rgba(110, 118, 129, 0.4);
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  color: #f0f6fc;
+}
+
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 0.875em;
+  line-height: 1.6;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+blockquote {
+  padding: 0.5em 1em;
+  color: #8b949e;
+  border-left: 0.25em solid #30363d;
+  background-color: rgba(110, 118, 129, 0.1);
+  border-radius: 0 6px 6px 0;
+  margin: 0 0 12px;
+}
+
+blockquote > :last-child { margin-bottom: 0; }
+
+hr {
+  border: none;
+  border-top: 1px solid #30363d;
+  margin: 24px 0;
+}
+
+/* ========================================
+   Header - Sticky with Backdrop Blur
+   ======================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
+  border-bottom: 1px solid #30363d;
+  min-height: 56px;
+  margin-bottom: 0;
+}
+
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
+.site-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f0f6fc;
+  margin: 0;
+  line-height: 1;
+  float: none;
+}
+
+.site-title,
+.site-title:visited,
+.site-title:hover {
+  color: #f0f6fc;
+}
+
+.site-title:hover {
+  font-weight: 700;
+}
+
+.site-nav {
+  float: none;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-nav .page-link {
+  color: #8b949e;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 4px 0;
+  line-height: 1.5;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.site-nav .page-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #58a6ff;
+  transition: width 0.2s ease;
+}
+
+.site-nav .page-link:hover {
+  color: #f0f6fc;
+}
+
+.site-nav .page-link:hover::after {
+  width: 100%;
+}
+
+.site-nav .page-link:not(:last-child) {
+  margin-right: 0;
+}
+
+.site-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-nav .nav-trigger,
+.site-nav .menu-icon {
+  display: none;
+}
+
+/* ========================================
+   Page Content
+   ======================================== */
+
+.page-content {
+  padding: 3rem 0;
+  flex: 1;
+}
+
+.page-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+}
+
+/* ========================================
+   Post Cards - Home Page
+   ======================================== */
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+}
+
+.post-list > li {
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.post-list > li:nth-child(1) { animation-delay: 0.05s; }
+.post-list > li:nth-child(2) { animation-delay: 0.1s; }
+.post-list > li:nth-child(3) { animation-delay: 0.15s; }
+.post-list > li:nth-child(4) { animation-delay: 0.2s; }
+.post-list > li:nth-child(5) { animation-delay: 0.25s; }
+.post-list > li:nth-child(6) { animation-delay: 0.3s; }
+.post-list > li:nth-child(7) { animation-delay: 0.35s; }
+.post-list > li:nth-child(8) { animation-delay: 0.4s; }
+.post-list > li:nth-child(9) { animation-delay: 0.45s; }
+.post-list > li:nth-child(10) { animation-delay: 0.5s; }
+.post-list > li:nth-child(11) { animation-delay: 0.55s; }
+.post-list > li:nth-child(12) { animation-delay: 0.6s; }
+
+.post-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.post-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.post-card:hover .post-card-title {
+  color: #58a6ff;
+}
+
+.post-card .post-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin: 0 0 0.5rem;
+  transition: color 0.2s ease;
+  line-height: 1.4;
+}
+
+.post-card .post-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #8b949e;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.post-card .post-card-meta-sep {
+  color: #484f58;
+}
+
+.post-card .post-card-excerpt {
+  color: #8b949e;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card .post-card-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.post-card .post-card-tag {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background-color: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 20px;
+  color: #58a6ff;
+  transition: all 0.15s ease;
+}
+
+.post-card .post-card-tag:hover {
+  background-color: rgba(88, 166, 255, 0.2);
+}
+
+/* ========================================
+   Post Page
+   ======================================== */
+
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #f0f6fc;
+}
+
+@media screen and (max-width: 800px) {
+  .post-title {
+    font-size: 2rem;
+  }
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: #8b949e;
+  flex-wrap: wrap;
+}
+
+.post-meta-sep {
+  color: #484f58;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.post-tag {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background-color: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 20px;
+  color: #58a6ff;
+}
+
+.post-tag:hover {
+  background-color: rgba(88, 166, 255, 0.2);
+}
+
+.post-content {
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.post-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.post-content h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-content h4 {
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content img {
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  margin: 1.5rem 0;
+}
+
+.post-content ul, .post-content ol {
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.post-content li {
+  margin-bottom: 0.35rem;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.site-footer {
+  border-top: 1px solid #30363d;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.site-footer .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  font-size: 0.8rem;
+  color: #484f58;
+}
+
+.footer-left .footer-credit {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-social a {
+  color: #8b949e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.footer-social a:hover {
+  color: #f0f6fc;
+  background-color: #21262d;
+}
+
+.footer-social a svg {
+  fill: currentColor;
+  width: 18px;
+  height: 18px;
+}
+
+/* ========================================
+   Back to Top Button
+   ======================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 36px;
+  height: 36px;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #8b949e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  z-index: 50;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  color: #f0f6fc;
+  border-color: #484f58;
+}
+
+.back-to-top svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ========================================
+   Empty State
+   ======================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.empty-state-icon {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 3rem;
+  color: #484f58;
+  margin-bottom: 1rem;
+}
+
+.empty-state h2 {
+  font-size: 1.5rem;
+  color: #f0f6fc;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: #8b949e;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   404 Page
+   ======================================== */
+
+.page-404 {
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.page-404-code {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #58a6ff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.page-404-message {
+  font-size: 1.25rem;
+  color: #8b949e;
+  margin: 1rem 0 2rem;
+}
+
+.page-404-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #58a6ff;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+}
+
+.page-404-back:hover {
+  border-color: #58a6ff;
+  background-color: rgba(88, 166, 255, 0.1);
+}
+
+/* ========================================
+   About Page
+   ======================================== */
+
+.about-content {
+  max-width: 640px;
+}
+
+.about-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #30363d;
+  margin-bottom: 1.5rem;
+}
+
+.about-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.about-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: #c9d1d9;
+  transition: all 0.15s ease;
+}
+
+.about-links a:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========================================
+   Tables
+   ======================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+table th, table td {
+  padding: 10px 14px;
+  border: 1px solid #30363d;
+  text-align: left;
+}
+
+table th {
+  background-color: #161b22;
+  font-weight: 600;
+  color: #f0f6fc;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(22, 27, 34, 0.5);
+}
+
+/* ========================================
+   Selection
+   ======================================== */
+
+::selection {
+  background-color: rgba(88, 166, 255, 0.3);
+  color: #f0f6fc;
+}
+
+/* ========================================
+   Scrollbar (Webkit)
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #484f58;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b949e;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media screen and (max-width: 800px) {
+  .page-content {
+    padding: 2rem 0;
+  }
+
+  .post-title {
+    font-size: 2rem;
+  }
+
+  .post-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .post-card .post-card-title {
+    font-size: 1.125rem;
+  }
+
+  .site-footer .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .site-nav .nav-links {
+    gap: 12px;
+  }
+
+  .post-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

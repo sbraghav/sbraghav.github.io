@@ -1,0 +1,27 @@
+{
+  "name": "sbraghav.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbraghav/sbraghav.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbraghav/sbraghav.github.io/issues"
+  },
+  "homepage": "https://github.com/sbraghav/sbraghav.github.io#readme",
+  "dependencies": {
+    "@astrojs/rss": "^4.0.18",
+    "astro": "^4.5.18"
+  }
+}
