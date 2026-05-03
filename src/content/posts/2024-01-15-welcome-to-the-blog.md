@@ -1,7 +1,8 @@
 ---
 title: "Welcome to the blog"
-date: 2024-01-15 12:00:00 +0000
+date: 2024-01-15
 tags: [meta, hello-world]
+description: "First post on my revamped blog with a developer-focused dark theme."
 ---
 
 This is the first post on my revamped blog. The site now features a developer-focused dark theme inspired by GitHub's design language.

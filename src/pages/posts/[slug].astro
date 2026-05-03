@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await post.render();
+
+function calculateReadTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  return Math.ceil(words / 200);
+}
+
+const readingTime = calculateReadTime(post.body || '');
+---
+
+<PostLayout
+  title={post.data.title}
+  date={post.data.date}
+  tags={post.data.tags || []}
+  description={post.data.description}
+  readingTime={readingTime}
+>
+  <Content />
+</PostLayout>
