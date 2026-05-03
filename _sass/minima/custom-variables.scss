@@ -1,4 +1,23 @@
-$background-color: #1d1d1d; /* a dark, off-black for the bg */
-$text-color: #e6e6e6; /* an off-white for the text */
-$grey-color-light: #565656; /* for the border-top separators */
-$grey-color-dark: #adadad; /* such as the site title in the header, visited */  
+$background-color: #0d1117;
+$text-color: #c9d1d9;
+$brand-color: #58a6ff;
+
+$grey-color: #8b949e;
+$grey-color-light: #21262d;
+$grey-color-dark: #484f58;
+
+$content-width: 820px;
+$spacing-unit: 24px;
+
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+$mono-font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, monospace;
+$base-font-size: 16px;
+$base-font-weight: 400;
+$base-line-height: 1.6;
+
+$border-color: #30363d;
+$card-bg: #161b22;
+$card-hover-border: #58a6ff;
+$accent-green: #238636;
+$accent-purple: #8957e5;
+$accent-orange: #d29922;

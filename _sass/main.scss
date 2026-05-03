@@ -1,25 +1,740 @@
+/* ========================================
+   Base Overrides - Developer Dark Theme
+   ======================================== */
+
+body {
+  font-family: $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f0f6fc;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+
+p {
+  color: $text-color;
+  line-height: 1.7;
+  margin-bottom: $spacing-unit / 2;
+}
+
+a {
+  color: $brand-color;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:visited {
+    color: $brand-color;
+  }
+
+  &:hover {
+    color: #79c0ff;
+    text-decoration: none;
+  }
+}
+
+code {
+  font-family: $mono-font-family;
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: rgba(110, 118, 129, 0.4);
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  color: #f0f6fc;
+}
+
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 0.875em;
+  line-height: 1.6;
+  background-color: #161b22;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  margin-bottom: $spacing-unit / 2;
+
+  code {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    color: inherit;
+  }
+}
+
+blockquote {
+  padding: 0.5em 1em;
+  color: $grey-color;
+  border-left: 0.25em solid $border-color;
+  background-color: rgba(110, 118, 129, 0.1);
+  border-radius: 0 6px 6px 0;
+  margin: 0 0 $spacing-unit / 2;
+
+  > :last-child { margin-bottom: 0; }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: $spacing-unit 0;
+}
+
+/* ========================================
+   Header - Sticky with Backdrop Blur
+   ======================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
+  border-bottom: 1px solid $border-color;
+  min-height: 56px;
+  margin-bottom: 0;
+}
+
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
 .site-title {
-    font-size: 22px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #f0f6fc;
+  margin: 0;
+  line-height: 1;
+  float: none;
+
+  &, &:visited, &:hover {
+    color: #f0f6fc;
+  }
+
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+.site-nav {
+  float: none;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .page-link {
+    color: $grey-color;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: black;
+    padding: 4px 0;
+    line-height: 1.5;
+    position: relative;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $brand-color;
+      transition: width 0.2s ease;
+    }
+
+    &:hover {
+      color: #f0f6fc;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-trigger,
+  .menu-icon {
+    display: none;
+  }
+}
+
+/* ========================================
+   Page Content
+   ======================================== */
+
+.page-content {
+  padding: 3rem 0;
+  flex: 1;
+}
+
+.page-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+}
+
+/* ========================================
+   Post Cards - Home Page
+   ======================================== */
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.4s ease both;
+  }
+
+  @for $i from 1 through 12 {
+    > li:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}
+
+.post-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  background-color: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $card-hover-border;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+    .post-card-title {
+      color: $brand-color;
+    }
+  }
+
+  .post-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin: 0 0 0.5rem;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+  }
+
+  .post-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: $grey-color;
+    font-family: $mono-font-family;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .post-card-meta-sep {
+    color: $grey-color-dark;
+  }
+
+  .post-card-excerpt {
+    color: $grey-color;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-card-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  .post-card-tag {
+    font-family: $mono-font-family;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    background-color: rgba(88, 166, 255, 0.1);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 20px;
+    color: $brand-color;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: rgba(88, 166, 255, 0.2);
+    }
+  }
+}
+
+/* ========================================
+   Post Page
+   ======================================== */
+
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
 }
 
 .post-title {
-    font-size: 28px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #f0f6fc;
+
+  @include media-query($on-laptop) {
+    font-size: 2rem;
+  }
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: $mono-font-family;
+  font-size: 0.8rem;
+  color: $grey-color;
+  flex-wrap: wrap;
+}
+
+.post-meta-sep {
+  color: $grey-color-dark;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.post-tag {
+  font-family: $mono-font-family;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background-color: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 20px;
+  color: $brand-color;
+
+  &:hover {
+    background-color: rgba(88, 166, 255, 0.2);
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+  line-height: 1.7;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border-color;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1.25rem;
+  }
+
+  img {
+    border-radius: 8px;
+    border: 1px solid $border-color;
+    margin: 1.5rem 0;
+  }
+
+  ul, ol {
+    margin-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  li {
+    margin-bottom: 0.35rem;
+  }
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.site-footer {
+  border-top: 1px solid $border-color;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.site-footer .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  font-size: 0.8rem;
+  color: $grey-color-dark;
+
+  .footer-credit {
+    font-family: $mono-font-family;
+    font-size: 0.75rem;
+    color: $grey-color;
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: $grey-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: #f0f6fc;
+      background-color: $grey-color-light;
+    }
+
+    svg {
+      fill: currentColor;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+/* ========================================
+   Back to Top Button
+   ======================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 36px;
+  height: 36px;
+  background-color: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  color: $grey-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  z-index: 50;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    color: #f0f6fc;
+    border-color: $grey-color-dark;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}
+
+/* ========================================
+   Empty State
+   ======================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.empty-state-icon {
+  font-family: $mono-font-family;
+  font-size: 3rem;
+  color: $grey-color-dark;
+  margin-bottom: 1rem;
+}
+
+.empty-state h2 {
+  font-size: 1.5rem;
+  color: #f0f6fc;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: $grey-color;
+  font-family: $mono-font-family;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   404 Page
+   ======================================== */
+
+.page-404 {
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.page-404-code {
+  font-family: $mono-font-family;
+  font-size: 5rem;
+  font-weight: 700;
+  color: $brand-color;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.page-404-message {
+  font-size: 1.25rem;
+  color: $grey-color;
+  margin: 1rem 0 2rem;
+}
+
+.page-404-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  color: $brand-color;
+  font-family: $mono-font-family;
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: $brand-color;
+    background-color: rgba(88, 166, 255, 0.1);
+  }
+}
+
+/* ========================================
+   About Page
+   ======================================== */
+
+.about-content {
+  max-width: 640px;
+}
+
+.about-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid $border-color;
+  margin-bottom: 1.5rem;
+}
+
+.about-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    background-color: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    font-family: $mono-font-family;
+    font-size: 0.8rem;
+    color: $text-color;
+    transition: all 0.15s ease;
+
+    &:hover {
+      border-color: $brand-color;
+      color: $brand-color;
+    }
+  }
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========================================
+   Tables
+   ======================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-unit / 2;
+  font-size: 0.9rem;
+
+  th, td {
+    padding: 10px 14px;
+    border: 1px solid $border-color;
+    text-align: left;
+  }
+
+  th {
+    background-color: $card-bg;
     font-weight: 600;
+    color: #f0f6fc;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(22, 27, 34, 0.5);
+  }
 }
 
-.post-link {
-    font-size: 22px;
-    font-weight: 500;
+/* ========================================
+   Selection
+   ======================================== */
+
+::selection {
+  background-color: rgba(88, 166, 255, 0.3);
+  color: #f0f6fc;
 }
 
-.footer-heading,
-.post-list-heading,
-.rss-subscribe, a.page-link {
-    display: none;
+/* ========================================
+   Scrollbar (Webkit)
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-a.page-link:hover, span.username:hover{
-    font-weight: 700;
+::-webkit-scrollbar-track {
+  background: $background-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $grey-color-dark;
+  border-radius: 4px;
+
+  &:hover {
+    background: $grey-color;
+  }
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@include media-query($on-laptop) {
+  .page-content {
+    padding: 2rem 0;
+  }
+
+  .post-title {
+    font-size: 2rem;
+  }
+
+  .post-card {
+    padding: 1rem 1.25rem;
+
+    .post-card-title {
+      font-size: 1.125rem;
+    }
+  }
+
+  .site-footer .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+@include media-query($on-palm) {
+  .site-nav {
+    .nav-links {
+      gap: 12px;
+    }
+  }
+
+  .post-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
 }
