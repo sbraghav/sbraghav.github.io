@@ -24,8 +24,6 @@ const readTime = excerpt ? calculateReadTime(excerpt) : 1;
   </a>
   <div class="post-card-meta">
     <time datetime={date.toISOString()}>{formattedDate}</time>
-    <span class="post-card-meta-sep">·</span>
-    <span>{readTime} min read</span>
   </div>
   {tags.length > 0 && (
     <div class="post-card-tags">
