@@ -1,10 +1,12 @@
 ---
 title: "Understanding Reciprocal Rank Fusion - Step by Step"
-date: 2026-05-12
-tags: [LangChain4J, Reranking, RAG, Context Engineering]
-description: "Implement Reciprocal Rank Fusion to develop an intuition on how it works"
+date: 2026-05-16
+tags: [Reciprocal Rank Fusion, Reranking, RAG, Context Engineering]
+description: "A deep dive into Reciprocal Rank Fusion and its mathematical intuition"
 ---
 When building Retrieval Augmented Generation (RAG) systems, we may rely on multiple approaches / criteria to find the most relevant chunks of information from the knowledge bases. Different approaches can have different rankings for the perceived closeness of the chunk of information to the user query. Reciprocal rank fusion attempts to reconcile the ranked chunk information from each approach and arrives at a consolidated rank based on the rank of the chunk in each approach.
+
+Reciprocal rank fusion is available out of the box as a part of Elasticsearch, LangChain and MongoDB. Yet, As a developer, understanding how Reciprocal Rank Fusion (RRF) works mathematically helps you go beyond just using it as a ready-made function. It gives you a clear idea of why certain search results appear higher, how multiple search models can be combined effectively, and how retrieval systems actually make decisions. Once you understand the logic behind the formula, debugging and improving search quality becomes much easier. This is especially useful in modern AI applications, RAG systems, and search engines where good retrieval directly impacts the final output. Instead of treating it like a black box, you’ll be able to confidently tune, optimize and explain.  
 
 In its simplest form, reciprocal rank fusion helps to find a consolidated ranked list of items from multiple buckets. The items ranked higher in multiple buckets gets higher preference in the consolidated list and the vice versa.
 
