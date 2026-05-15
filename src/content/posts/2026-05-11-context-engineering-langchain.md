@@ -43,3 +43,59 @@ double rrf(int rank) {
 
 - We can see that the first ranked element has a score that is only 1% more than the second ranked result, yet it has a 20% higher score over the 20th ranked element.
 - This primary intuition drives the effectiveness of this scoring function. Closer ranked elements are assigned closer scores and the first few ranks do not skew the scores too much.
+# Implementation
+
+```java
+/**
+     * Performs Reciprocal Rank Fusion (RRF) on multiple ranked lists.
+     *
+     * @param rankedLists List of ranked document lists
+     * @param k           RRF constant (typically 60)
+     * @return documents sorted by fused score
+     */
+    public static List<Map.Entry<String, Double>> fuse(
+            List<List<String>> rankedLists,
+            int k
+    ) {
+
+        Map<String, Double> scores = new HashMap<>();
+
+        rankedLists.forEach(rankedList -> IntStream.range(0, rankedList.size())
+                .forEach(rank ->
+                        scores.merge(rankedList.get(rank), getRrfScore(k, rank), Double::sum)
+                ));
+
+        List<Map.Entry<String, Double>> result =
+                new ArrayList<>(scores.entrySet());
+
+        result.sort((a, b) ->
+                Double.compare(b.getValue(), a.getValue()));
+
+        return result;
+    }
+
+    private static double getRrfScore(int k, int rank) {
+        return 1.0 / (k + rank);
+    }
+```
+```
+```
+
+# Test Runs
+We can examine the effectiveness of the re-ranker by running it with some sample inputs.
+![Test Input for Reciprocal Rank Fusion](../images/idea64_L8bYmi5VsA.png)
+* We can quickly observe that D1, D2 and D3 are the elements present across all the three buckets.
+* D3 is ranked high in two of the buckets and has the lowest rank in the first bucket.
+* D2 performs consistently well across the three buckets.
+* D1's rank varies a lot - It has the top rank in one of the buckets but has the lowest rank in the other two.
+
+From a layman's perspective, they would expect D1, D2 and D3 to be assigned the highest ranks since they are present across multiple buckets.
+
+## Observations
+![Results](../images/rrf_results.png)
+* Elements with consistently higher ranks across buckets have been prioritized over the elements with varying ranks.
+* D2 is ranked higher than D1 even when D2 has never been ranked first in any of the buckets, while D1 holds the first rank in one of the buckets - The k value of 60 minimizes the bias towards the first few ranks.
+
+# Real Life Applications
+* The biggest advantage of the reciprocal rank fusion algorithm is its lightweight nature. It is so easy to implement, quick and consumes very less resources.
+* Unlike other machine learning based re-ranking algorithms (e.g. logistic regression), Reciprocal rank fusion requires no prior training and a easier learning curve. 
